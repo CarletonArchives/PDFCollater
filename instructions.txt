@@ -1,0 +1,53 @@
+pdfCollater.py
+Code by Mikenna Everett
+mikenna.everett@gmail.com
+August 18, 2013
+
+This program depends on the python module PyPDF2 version 1.7, available for download and installation at:
+https://github.com/mstamy2/PyPDF2/
+
+This program will collate a PDF file (or the PDF files in a directory) scanned using an auto-document feeder without cutting the binding of the original document. 
+
+
+A potential 4-page PDF input document
+    -----------------
+    |   8   |   1   |   (Page 1)
+    -----------------
+    |   2   |   7   |   (Page 2)
+    -----------------
+    |   6   |   3   |   (Page 3)
+    -----------------
+    |   4   |   5   |   (Page 4)
+    -----------------
+
+Will be collated into the resulting document:
+    ---------
+    |   1   |   (Page 1)
+    ---------
+    |   2   |   (Page 2)
+    ---------
+    |   3   |   (Page 3)
+    ---------
+    |   4   |   (Page 4)
+    ---------
+    |   5   |   (Page 5)
+    ---------
+    |   6   |   (Page 6)
+    ---------
+
+To prepare a document for use:
+-Remove the document's fasteners
+-Open to its center page 
+-Placed in the auto-document feeder (ADF).
+-The resulting scan should begin with the first and last page of the original pamphlet, with each subsequent page in the document moving towards the middle pages of the original pamphlet.
+-Crop as needed.
+    
+
+USAGE INSTRUCTIONS:
+Run this program at a command line terminal. Navigate to the directory where pdfCollate.py is saved and run it with 1 argument:
+"python pdfCollate.py [PATH]"
+
+INPUT: a full path to a file/directory OR a filename/directory name in the same folder as pdfCollate.py.
+OUTPUT: a file/directory of the properly collated document(s) by the same name as the original file/directory plus "-collated". NOTE: if a directory is specified, all contents of the directory are copied to the new directory.
+
+Note: this program will not overwrite the original PDF files.
